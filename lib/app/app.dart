@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'router.dart';
+import '../core/theme/app_theme.dart';
 
 class MapingoApp extends ConsumerWidget {
   const MapingoApp({super.key});
@@ -12,20 +13,8 @@ class MapingoApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Mapingo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF00843D),
-          brightness: Brightness.light,
-        ),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF00843D),
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
+      theme: MapingoTheme.lightTheme,
+      darkTheme: MapingoTheme.darkTheme,
       routerConfig: router,
     );
   }
