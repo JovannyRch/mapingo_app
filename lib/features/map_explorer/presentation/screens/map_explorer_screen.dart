@@ -2,35 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/theme/theme.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/components/components.dart';
 import '../../data/models/map_state_model.dart';
 import '../providers/map_explorer_provider.dart';
-import '../widgets/mexico_map_view.dart';
+import '../widgets/mexico_svg_map.dart';
 
 class MapExplorerScreen extends ConsumerWidget {
   const MapExplorerScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final contentState = ref.watch(mapExplorerContentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Map Explorer')),
+      appBar: AppBar(title: Text(l10n.mapExplorer)),
       body: contentState.when(
-        loading: () => const LoadingView(message: 'Loading Mexico map...'),
+        loading: () => LoadingView(message: l10n.loadingMap),
         error: (error, stackTrace) => ErrorView(
-          title: 'Could not load map',
+          title: l10n.couldNotLoadMap,
           message: error.toString(),
-          actionLabel: 'Try again',
+          actionLabel: l10n.tryAgain,
           onAction: () => ref.invalidate(mapExplorerContentProvider),
         ),
         data: (content) {
           if (content.isEmpty) {
             return EmptyStateView(
               icon: Icons.map_rounded,
-              title: 'No map data yet',
-              message: 'Mexican states will appear here when content is ready.',
-              actionLabel: 'Refresh',
+              title: l10n.noMapDataYet,
+              message: l10n.statesWillAppearHere,
+              actionLabel: l10n.refresh,
               onAction: () => ref.invalidate(mapExplorerContentProvider),
             );
           }
@@ -49,6 +51,7 @@ class _MapExplorerContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final selectedMapKey = ref.watch(selectedMapKeyProvider);
     final selectedState = _selectedState(selectedMapKey);
 
@@ -60,20 +63,20 @@ class _MapExplorerContent extends ConsumerWidget {
               padding: MapingoSpacing.screenPadding,
               children: [
                 Text(
-                  'Explore Mexico',
+                  l10n.exploreMexico,
                   style: MapingoTypography.displaySmall.copyWith(
                     color: MapingoColors.grey900,
                   ),
                 ),
                 const SizedBox(height: MapingoSpacing.sm),
                 Text(
-                  'Tap any state to see its capital, region, and a fun fact.',
+                  l10n.tapStateToSeeDetails,
                   style: MapingoTypography.bodyMedium.copyWith(
                     color: MapingoColors.grey600,
                   ),
                 ),
                 const SizedBox(height: MapingoSpacing.xl),
-                MexicoMapView(
+                MexicoSvgMap(
                   states: content.states,
                   selectedMapKey: selectedMapKey,
                   onStateTap: (state) {
@@ -113,7 +116,8 @@ class _MapPromptCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    final l10n = AppLocalizations.of(context)!;
+    return Padding(
       padding: MapingoSpacing.paddingBase,
       child: MapingoCard(
         boxShadow: [],
@@ -121,10 +125,10 @@ class _MapPromptCard extends StatelessWidget {
         child: Row(
           children: [
             Icon(Icons.touch_app_rounded, color: MapingoColors.primary),
-            SizedBox(width: MapingoSpacing.md),
+            const SizedBox(width: MapingoSpacing.md),
             Expanded(
               child: Text(
-                'Choose a state on the map.',
+                l10n.chooseStateOnMap,
                 style: MapingoTypography.titleLarge,
               ),
             ),
@@ -147,6 +151,7 @@ class _StateInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: MapingoSpacing.paddingBase,
@@ -199,19 +204,19 @@ class _StateInfoCard extends StatelessWidget {
             const SizedBox(height: MapingoSpacing.base),
             _InfoRow(
               icon: Icons.location_city_rounded,
-              label: 'Capital',
+              label: l10n.capital,
               value: state.capital,
             ),
             const SizedBox(height: MapingoSpacing.sm),
             _InfoRow(
               icon: Icons.school_rounded,
-              label: 'Progress',
-              value: progress?.label ?? 'No practice yet',
+              label: l10n.progress,
+              value: progress?.label ?? l10n.noPracticeYet,
             ),
             if (state.funFact != null) ...[
               const SizedBox(height: MapingoSpacing.base),
               Text(
-                'Fun fact',
+                l10n.funFact,
                 style: MapingoTypography.labelMedium.copyWith(
                   color: MapingoColors.primary,
                 ),

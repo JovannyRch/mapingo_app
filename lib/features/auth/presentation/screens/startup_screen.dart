@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/routes.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/components/error_view.dart';
 import '../../../../shared/components/loading_view.dart';
 import '../providers/auth_provider.dart';
@@ -12,6 +13,8 @@ class StartupScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+
     ref.listen(startupAuthProvider, (previous, next) {
       next.whenOrNull(
         data: (session) {
@@ -27,32 +30,33 @@ class StartupScreen extends ConsumerWidget {
 
     return Scaffold(
       body: startupState.when(
-        loading: () => const LoadingView(message: 'Starting Mapingo...'),
+        loading: () => LoadingView(message: l10n.startingMapingo),
         error: (error, stackTrace) => ErrorView(
-          title: 'Could not start Mapingo',
-          message: _startupErrorMessage(error),
-          actionLabel: 'Try again',
+          title: l10n.couldNotStartMapingo,
+          message: _startupErrorMessage(error, context),
+          actionLabel: l10n.tryAgain,
           onAction: () => ref.read(startupAuthProvider.notifier).retry(),
         ),
-        data: (_) => const LoadingView(message: 'Opening your map...'),
+        data: (_) => LoadingView(message: l10n.openingYourMap),
       ),
     );
   }
 
-  String _startupErrorMessage(Object error) {
+  String _startupErrorMessage(Object error, BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final message = error.toString();
     if (message.contains('anonymous_provider_disabled')) {
-      return 'Anonymous sign-ins are disabled in Supabase. Enable Anonymous sign-ins in Authentication > Providers before starting Mapingo.';
+      return l10n.anonymousSignInsDisabled;
     }
     if (message.contains('Failed host lookup') ||
         message.contains('SocketException') ||
         message.contains('AuthRetryableFetchException')) {
-      return 'Mapingo could not reach Supabase. Check the network connection and Supabase URL, then try again.';
+      return l10n.mapingoCouldNotReachSupabase;
     }
     if (message.contains('Supabase is not configured')) {
-      return 'Supabase is not configured for this build. Add SUPABASE_URL and SUPABASE_ANON_KEY when launching the app.';
+      return l10n.supabaseNotConfigured;
     }
 
-    return 'Something went wrong while starting Mapingo. Please try again.';
+    return l10n.somethingWentWrong;
   }
 }

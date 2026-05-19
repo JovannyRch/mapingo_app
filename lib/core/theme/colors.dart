@@ -35,8 +35,10 @@ abstract final class MapingoColors {
   // Semantic
   static const Color success = Color(0xFF4CAF50);
   static const Color successLight = Color(0xFFE8F5E9);
+  static const Color successDark = Color(0xFF2E7D32);
   static const Color error = Color(0xFFE53935);
   static const Color errorLight = Color(0xFFFFEBEE);
+  static const Color errorDark = Color(0xFFC62828);
   static const Color warning = Color(0xFFFF9800);
   static const Color warningLight = Color(0xFFFFF3E0);
   static const Color info = Color(0xFF2196F3);

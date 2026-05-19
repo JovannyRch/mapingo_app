@@ -1,4 +1,4 @@
-package com.example.mapingo_app
+package www.jovannyrch.mapingo
 
 import io.flutter.embedding.android.FlutterActivity
 

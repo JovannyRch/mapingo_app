@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/theme/theme.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/components/components.dart';
 import '../../../lessons/data/models/lesson_models.dart';
 import '../../../lessons/presentation/providers/lesson_engine_state.dart';
@@ -18,16 +19,17 @@ class PracticeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final practiceState = ref.watch(practiceControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Practice')),
+      appBar: AppBar(title: Text(l10n.practice)),
       body: practiceState.when(
-        loading: () => const LoadingView(message: 'Preparing practice...'),
+        loading: () => LoadingView(message: l10n.preparingPractice),
         error: (error, stackTrace) => ErrorView(
-          title: 'Could not load practice',
+          title: l10n.couldNotLoadPractice,
           message: error.toString(),
-          actionLabel: 'Try again',
+          actionLabel: l10n.tryAgain,
           onAction: () => ref.invalidate(practiceControllerProvider),
         ),
         data: (state) => _PracticeBody(state: state),
@@ -43,21 +45,22 @@ class _PracticeBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     switch (state.status) {
       case PracticeSessionStatus.choosingMode:
         return const _ModePicker();
       case PracticeSessionStatus.loading:
-        return const LoadingView(message: 'Preparing practice...');
+        return LoadingView(message: l10n.preparingPractice);
       case PracticeSessionStatus.empty:
         return EmptyStateView(
           icon: Icons.task_alt_rounded,
           title: state.mode == PracticeMode.mistakes
-              ? 'No mistakes to review'
-              : 'No practice yet',
+              ? l10n.noMistakesToReview
+              : l10n.noPracticeYet2,
           message: state.mode == PracticeMode.mistakes
-              ? 'Missed exercises will appear here after lessons.'
-              : 'Practice questions will appear here when content is ready.',
-          actionLabel: 'Choose another mode',
+              ? l10n.missedExercisesWillAppear
+              : l10n.practiceQuestionsWillAppear,
+          actionLabel: l10n.chooseAnotherMode,
           onAction: () => ref.read(practiceControllerProvider.notifier).reset(),
         );
       case PracticeSessionStatus.completed:
@@ -74,13 +77,14 @@ class _ModePicker extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     return ListView(
       padding: MapingoSpacing.screenPadding,
       children: [
-        Text('Choose practice', style: MapingoTypography.displaySmall),
+        Text(l10n.choosePractice, style: MapingoTypography.displaySmall),
         const SizedBox(height: MapingoSpacing.sm),
         Text(
-          'Short sessions help reinforce what you have learned.',
+          l10n.shortSessionsHelpReinforce,
           style: MapingoTypography.bodyMedium.copyWith(
             color: MapingoColors.grey600,
           ),
@@ -137,15 +141,16 @@ class _PracticeSession extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final exercise = state.currentExercise;
     final selection = ref.watch(lessonSelectionProvider(_practiceSelectionKey));
     final isBusy = state.status == PracticeSessionStatus.submittingAnswer;
 
     if (exercise == null) {
-      return const EmptyStateView(
+      return EmptyStateView(
         icon: Icons.quiz_rounded,
-        title: 'Practice complete',
-        message: 'You answered every practice question.',
+        title: l10n.practiceComplete,
+        message: l10n.youAnsweredEveryQuestion,
       );
     }
 
@@ -189,9 +194,9 @@ class _PracticeSession extends ConsumerWidget {
           child: PrimaryButton(
             label: state.currentExerciseAnswered
                 ? state.isLastExercise
-                      ? 'Finish'
-                      : 'Continue'
-                : 'Check',
+                      ? l10n.finish
+                      : l10n.continueAction
+                : l10n.check,
             icon: state.currentExerciseAnswered
                 ? Icons.arrow_forward_rounded
                 : Icons.check_rounded,
@@ -236,6 +241,7 @@ class _PracticeExerciseOptions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     if (exercise.exerciseType == ExerciseType.matchPairs) {
       return _PracticeMatchPairs(
         exercise: exercise,
@@ -254,7 +260,7 @@ class _PracticeExerciseOptions extends ConsumerWidget {
     }
 
     final options = switch (exercise.exerciseType) {
-      ExerciseType.trueFalse => const ['true', 'false'],
+      ExerciseType.trueFalse => [l10n.trueLabel, l10n.falseLabel],
       _ => exercise.options,
     };
 
@@ -262,7 +268,7 @@ class _PracticeExerciseOptions extends ConsumerWidget {
       children: [
         for (final option in options) ...[
           AnswerOptionCard(
-            text: _displayOption(option, exercise),
+            text: _displayOption(option, exercise, context),
             icon: Icons.touch_app_rounded,
             state: _optionState(option),
             isEnabled: !isAnswered,
@@ -289,9 +295,10 @@ class _PracticeExerciseOptions extends ConsumerWidget {
     return AnswerOptionState.normal;
   }
 
-  String _displayOption(String option, ExerciseModel exercise) {
-    if (option == 'true') return 'True';
-    if (option == 'false') return 'False';
+  String _displayOption(String option, ExerciseModel exercise, BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    if (option == 'true') return l10n.trueLabel;
+    if (option == 'false') return l10n.falseLabel;
     return option;
   }
 }
@@ -311,6 +318,7 @@ class _PracticeMapTap extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final mapContent = ref.watch(mapExplorerContentProvider);
     final wrongMapKey = result?.isCorrect == false
         ? selection.selectedValue
@@ -318,11 +326,11 @@ class _PracticeMapTap extends ConsumerWidget {
 
     return mapContent.when(
       loading: () =>
-          const LoadingView(message: 'Loading map...', showLogo: false),
+          LoadingView(message: l10n.loadingMap2, showLogo: false),
       error: (error, stackTrace) => ErrorView(
-        title: 'Could not load map',
+        title: l10n.couldNotLoadMap2,
         message: error.toString(),
-        actionLabel: 'Try again',
+        actionLabel: l10n.tryAgain,
         onAction: () => ref.invalidate(mapExplorerContentProvider),
       ),
       data: (content) => Column(
@@ -350,9 +358,9 @@ class _PracticeMapTap extends ConsumerWidget {
           Text(
             isAnswered
                 ? result?.isCorrect == true
-                      ? 'Correct state selected.'
-                      : 'The correct state is highlighted in green.'
-                : 'Tap the state on the map.',
+                      ? l10n.correctStateSelected2
+                      : l10n.correctStateHighlighted2
+                : l10n.tapStateOnMap2,
             style: MapingoTypography.bodyMedium.copyWith(
               color: MapingoColors.grey600,
             ),
@@ -428,6 +436,7 @@ class _PracticeFeedback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final answerResult = result;
     if (answerResult == null) return const SizedBox.shrink();
 
@@ -439,8 +448,8 @@ class _PracticeFeedback extends StatelessWidget {
           : MapingoColors.errorLight,
       child: Text(
         answerResult.isCorrect
-            ? 'Correct!'
-            : answerResult.explanation ?? 'Try this one again later.',
+            ? l10n.correct2
+            : answerResult.explanation ?? l10n.tryAgainLater,
         style: MapingoTypography.titleMedium.copyWith(
           color: answerResult.isCorrect
               ? MapingoColors.success
@@ -459,6 +468,7 @@ class _PracticeComplete extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: MapingoSpacing.paddingXl,
       child: Column(
@@ -472,7 +482,7 @@ class _PracticeComplete extends ConsumerWidget {
           ),
           const SizedBox(height: MapingoSpacing.xl),
           Text(
-            'Practice complete',
+            l10n.practiceComplete2,
             style: MapingoTypography.displayMedium,
             textAlign: TextAlign.center,
           ),
@@ -486,7 +496,7 @@ class _PracticeComplete extends ConsumerWidget {
           ),
           const SizedBox(height: MapingoSpacing.xxl),
           PrimaryButton(
-            label: 'Choose another mode',
+            label: l10n.chooseAnotherMode2,
             icon: Icons.replay_rounded,
             onPressed: () {
               ref.read(practiceControllerProvider.notifier).reset();
