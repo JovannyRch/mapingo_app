@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mapingo_app"
+    namespace = "www.jovannyrch.mapingo"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

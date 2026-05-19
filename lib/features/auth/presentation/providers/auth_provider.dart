@@ -163,9 +163,56 @@ class StartupAuthNotifier extends AsyncNotifier<AuthSession> {
     final authRepository = ref.read(authRepositoryProvider);
     final profileRepository = ref.read(profileRepositoryProvider);
 
-    final user = await authRepository.getOrCreateAnonymousUser();
-    final profile = await profileRepository.getOrCreateProfile(user.id);
+    try {
+      final user = await authRepository.getOrCreateAnonymousUser().timeout(
+        const Duration(seconds: 10),
+        onTimeout: () => throw const TimeoutException('Auth timeout'),
+      );
+      final profile = await profileRepository.getOrCreateProfile(user.id).timeout(
+        const Duration(seconds: 10),
+        onTimeout: () => throw const TimeoutException('Profile timeout'),
+      );
 
-    return AuthSession(user: user, profile: profile);
+      return AuthSession(user: user, profile: profile);
+    } catch (e) {
+      if (Env.isConfigured) rethrow;
+      return AuthSession(
+        user: _createOfflineUser(),
+        profile: _createOfflineProfile(),
+      );
+    }
   }
+
+  User _createOfflineUser() {
+    return User(
+      id: 'offline-user',
+      appMetadata: const {},
+      aud: 'offline',
+      createdAt: DateTime.now().toIso8601String(),
+      email: null,
+      userMetadata: null,
+    );
+  }
+
+  ProfileModel _createOfflineProfile() {
+    final now = DateTime.now();
+    return ProfileModel(
+      id: 'offline-user',
+      username: 'Explorador',
+      avatarUrl: null,
+      totalXp: 0,
+      currentStreak: 0,
+      longestStreak: 0,
+      lastActivityDate: null,
+      onboardingCompleted: false,
+      dailyGoalMinutes: 10,
+      createdAt: now,
+      updatedAt: now,
+    );
+  }
+}
+
+class TimeoutException implements Exception {
+  final String message;
+  const TimeoutException(this.message);
 }
