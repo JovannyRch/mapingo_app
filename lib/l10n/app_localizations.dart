@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
 
 // ignore_for_file: type=lint
@@ -92,834 +93,837 @@ abstract class AppLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('es')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('es'),
+  ];
 
   /// No description provided for @appName.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'Mapingo'**
   String get appName;
 
   /// No description provided for @exploreMexico.
   ///
-  /// In es, this message translates to:
-  /// **'Explora México'**
+  /// In en, this message translates to:
+  /// **'Explore Mexico'**
   String get exploreMexico;
 
   /// No description provided for @tapStateToSeeDetails.
   ///
-  /// In es, this message translates to:
-  /// **'Toca cualquier estado para ver su capital, región y un dato curioso.'**
+  /// In en, this message translates to:
+  /// **'Tap any state to see its capital, region, and a fun fact.'**
   String get tapStateToSeeDetails;
 
   /// No description provided for @loadingMap.
   ///
-  /// In es, this message translates to:
-  /// **'Cargando mapa de México...'**
+  /// In en, this message translates to:
+  /// **'Loading Mexico map...'**
   String get loadingMap;
 
   /// No description provided for @couldNotLoadMap.
   ///
-  /// In es, this message translates to:
-  /// **'No se pudo cargar el mapa'**
+  /// In en, this message translates to:
+  /// **'Could not load the map'**
   String get couldNotLoadMap;
 
   /// No description provided for @tryAgain.
   ///
-  /// In es, this message translates to:
-  /// **'Intentar de nuevo'**
+  /// In en, this message translates to:
+  /// **'Try again'**
   String get tryAgain;
 
   /// No description provided for @noMapDataYet.
   ///
-  /// In es, this message translates to:
-  /// **'Aún no hay datos del mapa'**
+  /// In en, this message translates to:
+  /// **'No map data yet'**
   String get noMapDataYet;
 
   /// No description provided for @statesWillAppearHere.
   ///
-  /// In es, this message translates to:
-  /// **'Los estados mexicanos aparecerán aquí cuando el contenido esté listo.'**
+  /// In en, this message translates to:
+  /// **'Mexican states will appear here once content is ready.'**
   String get statesWillAppearHere;
 
   /// No description provided for @refresh.
   ///
-  /// In es, this message translates to:
-  /// **'Actualizar'**
+  /// In en, this message translates to:
+  /// **'Refresh'**
   String get refresh;
 
   /// No description provided for @chooseStateOnMap.
   ///
-  /// In es, this message translates to:
-  /// **'Elige un estado en el mapa.'**
+  /// In en, this message translates to:
+  /// **'Choose a state on the map.'**
   String get chooseStateOnMap;
 
   /// No description provided for @capital.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'Capital'**
   String get capital;
 
   /// No description provided for @progress.
   ///
-  /// In es, this message translates to:
-  /// **'Progreso'**
+  /// In en, this message translates to:
+  /// **'Progress'**
   String get progress;
 
   /// No description provided for @noPracticeYet.
   ///
-  /// In es, this message translates to:
-  /// **'Sin práctica aún'**
+  /// In en, this message translates to:
+  /// **'No practice yet'**
   String get noPracticeYet;
 
   /// No description provided for @funFact.
   ///
-  /// In es, this message translates to:
-  /// **'Dato curioso'**
+  /// In en, this message translates to:
+  /// **'Fun fact'**
   String get funFact;
 
   /// No description provided for @practice.
   ///
-  /// In es, this message translates to:
-  /// **'Práctica'**
+  /// In en, this message translates to:
+  /// **'Practice'**
   String get practice;
 
   /// No description provided for @preparingPractice.
   ///
-  /// In es, this message translates to:
-  /// **'Preparando práctica...'**
+  /// In en, this message translates to:
+  /// **'Preparing practice...'**
   String get preparingPractice;
 
   /// No description provided for @couldNotLoadPractice.
   ///
-  /// In es, this message translates to:
-  /// **'No se pudo cargar la práctica'**
+  /// In en, this message translates to:
+  /// **'Could not load practice'**
   String get couldNotLoadPractice;
 
   /// No description provided for @noMistakesToReview.
   ///
-  /// In es, this message translates to:
-  /// **'Sin errores para repasar'**
+  /// In en, this message translates to:
+  /// **'No mistakes to review'**
   String get noMistakesToReview;
 
   /// No description provided for @noPracticeYet2.
   ///
-  /// In es, this message translates to:
-  /// **'Sin práctica aún'**
+  /// In en, this message translates to:
+  /// **'No practice yet'**
   String get noPracticeYet2;
 
   /// No description provided for @missedExercisesWillAppear.
   ///
-  /// In es, this message translates to:
-  /// **'Los ejercicios fallados aparecerán aquí después de las lecciones.'**
+  /// In en, this message translates to:
+  /// **'Missed exercises will appear here after lessons.'**
   String get missedExercisesWillAppear;
 
   /// No description provided for @practiceQuestionsWillAppear.
   ///
-  /// In es, this message translates to:
-  /// **'Las preguntas de práctica aparecerán aquí cuando el contenido esté listo.'**
+  /// In en, this message translates to:
+  /// **'Practice questions will appear here once content is ready.'**
   String get practiceQuestionsWillAppear;
 
   /// No description provided for @chooseAnotherMode.
   ///
-  /// In es, this message translates to:
-  /// **'Elegir otro modo'**
+  /// In en, this message translates to:
+  /// **'Choose another mode'**
   String get chooseAnotherMode;
 
   /// No description provided for @choosePractice.
   ///
-  /// In es, this message translates to:
-  /// **'Elegir práctica'**
+  /// In en, this message translates to:
+  /// **'Choose practice'**
   String get choosePractice;
 
   /// No description provided for @shortSessionsHelpReinforce.
   ///
-  /// In es, this message translates to:
-  /// **'Las sesiones cortas ayudan a reforzar lo que has aprendido.'**
+  /// In en, this message translates to:
+  /// **'Short sessions help reinforce what you\'ve learned.'**
   String get shortSessionsHelpReinforce;
 
   /// No description provided for @practiceComplete.
   ///
-  /// In es, this message translates to:
-  /// **'Práctica completa'**
+  /// In en, this message translates to:
+  /// **'Practice complete'**
   String get practiceComplete;
 
   /// No description provided for @youAnsweredEveryQuestion.
   ///
-  /// In es, this message translates to:
-  /// **'Respondiste todas las preguntas de práctica.'**
+  /// In en, this message translates to:
+  /// **'You answered all practice questions.'**
   String get youAnsweredEveryQuestion;
 
   /// No description provided for @finish.
   ///
-  /// In es, this message translates to:
-  /// **'Terminar'**
+  /// In en, this message translates to:
+  /// **'Finish'**
   String get finish;
 
   /// Button text to continue
   ///
-  /// In es, this message translates to:
-  /// **'Continuar'**
+  /// In en, this message translates to:
+  /// **'Continue'**
   String get continueAction;
 
   /// No description provided for @check.
   ///
-  /// In es, this message translates to:
-  /// **'Verificar'**
+  /// In en, this message translates to:
+  /// **'Check'**
   String get check;
 
   /// No description provided for @correctStateSelected.
   ///
-  /// In es, this message translates to:
-  /// **'Estado correcto seleccionado.'**
+  /// In en, this message translates to:
+  /// **'Correct state selected.'**
   String get correctStateSelected;
 
   /// No description provided for @correctStateHighlighted.
   ///
-  /// In es, this message translates to:
-  /// **'El estado correcto está resaltado en verde.'**
+  /// In en, this message translates to:
+  /// **'The correct state is highlighted in green.'**
   String get correctStateHighlighted;
 
   /// No description provided for @tapStateOnMap.
   ///
-  /// In es, this message translates to:
-  /// **'Toca el estado en el mapa.'**
+  /// In en, this message translates to:
+  /// **'Tap the state on the map.'**
   String get tapStateOnMap;
 
   /// No description provided for @correct.
   ///
-  /// In es, this message translates to:
-  /// **'¡Correcto!'**
+  /// In en, this message translates to:
+  /// **'Correct!'**
   String get correct;
 
   /// No description provided for @tryThisOneAgainLater.
   ///
-  /// In es, this message translates to:
-  /// **'Intenta este después.'**
+  /// In en, this message translates to:
+  /// **'Try this one later.'**
   String get tryThisOneAgainLater;
 
   /// No description provided for @mapExplorer.
   ///
-  /// In es, this message translates to:
-  /// **'Explorador de Mapas'**
+  /// In en, this message translates to:
+  /// **'Map Explorer'**
   String get mapExplorer;
 
   /// No description provided for @startingMapingo.
   ///
-  /// In es, this message translates to:
-  /// **'Iniciando Mapingo...'**
+  /// In en, this message translates to:
+  /// **'Starting Mapingo...'**
   String get startingMapingo;
 
   /// No description provided for @couldNotStartMapingo.
   ///
-  /// In es, this message translates to:
-  /// **'No se pudo iniciar Mapingo'**
+  /// In en, this message translates to:
+  /// **'Could not start Mapingo'**
   String get couldNotStartMapingo;
 
   /// No description provided for @openingYourMap.
   ///
-  /// In es, this message translates to:
-  /// **'Abriendo tu mapa...'**
+  /// In en, this message translates to:
+  /// **'Opening your map...'**
   String get openingYourMap;
 
   /// No description provided for @anonymousSignInsDisabled.
   ///
-  /// In es, this message translates to:
-  /// **'Los ingresos anónimos están deshabilitados en Supabase. Habilita los ingresos anónimos en Authentication > Providers antes de iniciar Mapingo.'**
+  /// In en, this message translates to:
+  /// **'Anonymous sign-ins are disabled in Supabase. Enable Anonymous sign-ins in Authentication > Providers before starting Mapingo.'**
   String get anonymousSignInsDisabled;
 
   /// No description provided for @mapingoCouldNotReachSupabase.
   ///
-  /// In es, this message translates to:
-  /// **'Mapingo no pudo alcanzar a Supabase. Verifica la conexión de red y la URL de Supabase, luego intenta de nuevo.'**
+  /// In en, this message translates to:
+  /// **'Mapingo could not reach Supabase. Check your network connection and Supabase URL, then try again.'**
   String get mapingoCouldNotReachSupabase;
 
   /// No description provided for @supabaseNotConfigured.
   ///
-  /// In es, this message translates to:
-  /// **'Supabase no está configurado para esta compilación. Agrega SUPABASE_URL y SUPABASE_ANON_KEY al iniciar la app.'**
+  /// In en, this message translates to:
+  /// **'Supabase is not configured for this build. Add SUPABASE_URL and SUPABASE_ANON_KEY when starting the app.'**
   String get supabaseNotConfigured;
 
   /// No description provided for @somethingWentWrong.
   ///
-  /// In es, this message translates to:
-  /// **'Algo salió mal al iniciar Mapingo. Por favor intenta de nuevo.'**
+  /// In en, this message translates to:
+  /// **'Something went wrong starting Mapingo. Please try again.'**
   String get somethingWentWrong;
 
   /// No description provided for @anonymousSignInDidNotReturnUser.
   ///
-  /// In es, this message translates to:
-  /// **'El ingreso anónimo no devolvió un usuario.'**
+  /// In en, this message translates to:
+  /// **'Anonymous sign-in did not return a user.'**
   String get anonymousSignInDidNotReturnUser;
 
   /// No description provided for @explorer.
   ///
-  /// In es, this message translates to:
-  /// **'Explorador'**
+  /// In en, this message translates to:
+  /// **'Explorer'**
   String get explorer;
 
   /// No description provided for @practiceMode.
   ///
-  /// In es, this message translates to:
-  /// **'Modo de Práctica'**
+  /// In en, this message translates to:
+  /// **'Practice Mode'**
   String get practiceMode;
 
   /// No description provided for @reviewMistakes.
   ///
-  /// In es, this message translates to:
-  /// **'Repasar Errores'**
+  /// In en, this message translates to:
+  /// **'Review Mistakes'**
   String get reviewMistakes;
 
   /// No description provided for @lessonPractice.
   ///
-  /// In es, this message translates to:
-  /// **'Práctica de Lección'**
+  /// In en, this message translates to:
+  /// **'Lesson Practice'**
   String get lessonPractice;
 
   /// No description provided for @mapPractice.
   ///
-  /// In es, this message translates to:
-  /// **'Práctica en el Mapa'**
+  /// In en, this message translates to:
+  /// **'Map Practice'**
   String get mapPractice;
 
   /// No description provided for @matchPairs.
   ///
-  /// In es, this message translates to:
-  /// **'Emparejar Pares'**
+  /// In en, this message translates to:
+  /// **'Match Pairs'**
   String get matchPairs;
 
   /// No description provided for @multipleChoice.
   ///
-  /// In es, this message translates to:
-  /// **'Opción Múltiple'**
+  /// In en, this message translates to:
+  /// **'Multiple Choice'**
   String get multipleChoice;
 
   /// No description provided for @tapTheState.
   ///
-  /// In es, this message translates to:
-  /// **'Toca el Estado'**
+  /// In en, this message translates to:
+  /// **'Tap the State'**
   String get tapTheState;
 
   /// Label for true
   ///
-  /// In es, this message translates to:
-  /// **'Verdadero'**
+  /// In en, this message translates to:
+  /// **'True'**
   String get trueLabel;
 
   /// Label for false
   ///
-  /// In es, this message translates to:
-  /// **'Falso'**
+  /// In en, this message translates to:
+  /// **'False'**
   String get falseLabel;
 
   /// No description provided for @loadingMap2.
   ///
-  /// In es, this message translates to:
-  /// **'Cargando mapa...'**
+  /// In en, this message translates to:
+  /// **'Loading map...'**
   String get loadingMap2;
 
   /// No description provided for @couldNotLoadMap2.
   ///
-  /// In es, this message translates to:
-  /// **'No se pudo cargar el mapa'**
+  /// In en, this message translates to:
+  /// **'Could not load the map'**
   String get couldNotLoadMap2;
 
   /// No description provided for @correctStateSelected2.
   ///
-  /// In es, this message translates to:
-  /// **'Estado correcto seleccionado.'**
+  /// In en, this message translates to:
+  /// **'Correct state selected.'**
   String get correctStateSelected2;
 
   /// No description provided for @correctStateHighlighted2.
   ///
-  /// In es, this message translates to:
-  /// **'El estado correcto está resaltado en verde.'**
+  /// In en, this message translates to:
+  /// **'The correct state is highlighted in green.'**
   String get correctStateHighlighted2;
 
   /// No description provided for @tapStateOnMap2.
   ///
-  /// In es, this message translates to:
-  /// **'Toca el estado en el mapa.'**
+  /// In en, this message translates to:
+  /// **'Tap the state on the map.'**
   String get tapStateOnMap2;
 
   /// No description provided for @correct2.
   ///
-  /// In es, this message translates to:
-  /// **'¡Correcto!'**
+  /// In en, this message translates to:
+  /// **'Correct!'**
   String get correct2;
 
   /// No description provided for @tryAgainLater.
   ///
-  /// In es, this message translates to:
-  /// **'Intenta más tarde.'**
+  /// In en, this message translates to:
+  /// **'Try again later.'**
   String get tryAgainLater;
 
   /// No description provided for @practiceComplete2.
   ///
-  /// In es, this message translates to:
-  /// **'Práctica completa'**
+  /// In en, this message translates to:
+  /// **'Practice complete'**
   String get practiceComplete2;
 
   /// No description provided for @chooseAnotherMode2.
   ///
-  /// In es, this message translates to:
-  /// **'Elegir otro modo'**
+  /// In en, this message translates to:
+  /// **'Choose another mode'**
   String get chooseAnotherMode2;
 
   /// No description provided for @home.
   ///
-  /// In es, this message translates to:
-  /// **'Inicio'**
+  /// In en, this message translates to:
+  /// **'Home'**
   String get home;
 
   /// No description provided for @profile.
   ///
-  /// In es, this message translates to:
-  /// **'Perfil'**
+  /// In en, this message translates to:
+  /// **'Profile'**
   String get profile;
 
   /// No description provided for @settings.
   ///
-  /// In es, this message translates to:
-  /// **'Configuración'**
+  /// In en, this message translates to:
+  /// **'Settings'**
   String get settings;
 
   /// No description provided for @mapingo.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'Mapingo'**
   String get mapingo;
 
   /// No description provided for @learnStatesOfMexico.
   ///
-  /// In es, this message translates to:
-  /// **'Aprende los estados de México jugando.'**
+  /// In en, this message translates to:
+  /// **'Learn the states of Mexico by playing.'**
   String get learnStatesOfMexico;
 
   /// No description provided for @dailyGoal.
   ///
-  /// In es, this message translates to:
-  /// **'Meta diaria'**
+  /// In en, this message translates to:
+  /// **'Daily goal'**
   String get dailyGoal;
 
   /// No description provided for @minutes.
   ///
-  /// In es, this message translates to:
-  /// **'minutos'**
+  /// In en, this message translates to:
+  /// **'minutes'**
   String get minutes;
 
   /// No description provided for @streak.
   ///
-  /// In es, this message translates to:
-  /// **'Racha'**
+  /// In en, this message translates to:
+  /// **'Streak'**
   String get streak;
 
   /// No description provided for @days.
   ///
-  /// In es, this message translates to:
-  /// **'días'**
+  /// In en, this message translates to:
+  /// **'days'**
   String get days;
 
   /// No description provided for @xp.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'XP'**
   String get xp;
 
   /// No description provided for @totalXp.
   ///
-  /// In es, this message translates to:
-  /// **'XP Total'**
+  /// In en, this message translates to:
+  /// **'Total XP'**
   String get totalXp;
 
   /// No description provided for @lessonsCompleted.
   ///
-  /// In es, this message translates to:
-  /// **'Lecciones completadas'**
+  /// In en, this message translates to:
+  /// **'Lessons completed'**
   String get lessonsCompleted;
 
   /// No description provided for @accuracy.
   ///
-  /// In es, this message translates to:
-  /// **'Precisión'**
+  /// In en, this message translates to:
+  /// **'Accuracy'**
   String get accuracy;
 
   /// No description provided for @achievements.
   ///
-  /// In es, this message translates to:
-  /// **'Logros'**
+  /// In en, this message translates to:
+  /// **'Achievements'**
   String get achievements;
 
   /// No description provided for @onboarding.
   ///
-  /// In es, this message translates to:
-  /// **'Bienvenido a Mapingo'**
+  /// In en, this message translates to:
+  /// **'Welcome to Mapingo'**
   String get onboarding;
 
   /// No description provided for @onboardingSubtitle.
   ///
-  /// In es, this message translates to:
-  /// **'Aprende los 32 estados de México de forma divertida'**
+  /// In en, this message translates to:
+  /// **'Learn the 32 states of Mexico the fun way'**
   String get onboardingSubtitle;
 
   /// No description provided for @setYourDailyGoal.
   ///
-  /// In es, this message translates to:
-  /// **'Configura tu meta diaria'**
+  /// In en, this message translates to:
+  /// **'Set your daily goal'**
   String get setYourDailyGoal;
 
   /// No description provided for @minutesDescription.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'minutes of practice per day'**
   String get minutesDescription;
 
   /// No description provided for @whatsYourName.
   ///
-  /// In es, this message translates to:
-  /// **'¿Cómo te llamas?'**
+  /// In en, this message translates to:
+  /// **'What\'s your name?'**
   String get whatsYourName;
 
   /// No description provided for @optionalUsername.
   ///
-  /// In es, this message translates to:
-  /// **'Opcional - ¿Cómo quieres que te llamemos?'**
+  /// In en, this message translates to:
+  /// **'Optional - What should we call you?'**
   String get optionalUsername;
 
   /// No description provided for @startLearning.
   ///
-  /// In es, this message translates to:
-  /// **'Comenzar a Aprender'**
+  /// In en, this message translates to:
+  /// **'Start Learning'**
   String get startLearning;
 
   /// No description provided for @skip.
   ///
-  /// In es, this message translates to:
-  /// **'Omitir'**
+  /// In en, this message translates to:
+  /// **'Skip'**
   String get skip;
 
   /// No description provided for @continueText.
   ///
-  /// In es, this message translates to:
-  /// **'Continuar'**
+  /// In en, this message translates to:
+  /// **'Continue'**
   String get continueText;
 
   /// No description provided for @welcome.
   ///
-  /// In es, this message translates to:
-  /// **'Bienvenido'**
+  /// In en, this message translates to:
+  /// **'Welcome'**
   String get welcome;
 
   /// No description provided for @letsStart.
   ///
-  /// In es, this message translates to:
-  /// **'¡Vamos a comenzar!'**
+  /// In en, this message translates to:
+  /// **'Let\'s get started!'**
   String get letsStart;
 
   /// No description provided for @selectAnswer.
   ///
-  /// In es, this message translates to:
-  /// **'Selecciona una respuesta'**
+  /// In en, this message translates to:
+  /// **'Select an answer'**
   String get selectAnswer;
 
   /// No description provided for @tapTheCorrectState.
   ///
-  /// In es, this message translates to:
-  /// **'Toca el estado correcto'**
+  /// In en, this message translates to:
+  /// **'Tap the correct state'**
   String get tapTheCorrectState;
 
   /// No description provided for @matchThePairs.
   ///
-  /// In es, this message translates to:
-  /// **'Empareja los pares'**
+  /// In en, this message translates to:
+  /// **'Match the pairs'**
   String get matchThePairs;
 
   /// No description provided for @isTheCapitalOf.
   ///
-  /// In es, this message translates to:
-  /// **'¿Es la capital de {state}?'**
+  /// In en, this message translates to:
+  /// **'Is it the capital of {state}?'**
   String isTheCapitalOf(String state);
 
   /// No description provided for @whichStateIs.
   ///
-  /// In es, this message translates to:
-  /// **'¿Qué estado es {capital}?'**
+  /// In en, this message translates to:
+  /// **'Which state is {capital}?'**
   String whichStateIs(String capital);
 
   /// No description provided for @lessonComplete.
   ///
-  /// In es, this message translates to:
-  /// **'¡Lección completa!'**
+  /// In en, this message translates to:
+  /// **'Lesson complete!'**
   String get lessonComplete;
 
   /// No description provided for @greatJob.
   ///
-  /// In es, this message translates to:
-  /// **'¡Buen trabajo!'**
+  /// In en, this message translates to:
+  /// **'Great job!'**
   String get greatJob;
 
   /// No description provided for @youGotXPY.
   ///
-  /// In es, this message translates to:
-  /// **'Obtuviste {xp} XP'**
+  /// In en, this message translates to:
+  /// **'You got {xp} XP'**
   String youGotXPY(int xp);
 
   /// No description provided for @correctAnswers.
   ///
-  /// In es, this message translates to:
-  /// **'Respuestas correctas'**
+  /// In en, this message translates to:
+  /// **'Correct answers'**
   String get correctAnswers;
 
   /// No description provided for @timeSpent.
   ///
-  /// In es, this message translates to:
-  /// **'Tiempo'**
+  /// In en, this message translates to:
+  /// **'Time'**
   String get timeSpent;
 
   /// No description provided for @continueToHome.
   ///
-  /// In es, this message translates to:
-  /// **'Continuar al inicio'**
+  /// In en, this message translates to:
+  /// **'Continue to home'**
   String get continueToHome;
 
   /// No description provided for @next.
   ///
-  /// In es, this message translates to:
-  /// **'Siguiente'**
+  /// In en, this message translates to:
+  /// **'Next'**
   String get next;
 
   /// No description provided for @back.
   ///
-  /// In es, this message translates to:
-  /// **'Atrás'**
+  /// In en, this message translates to:
+  /// **'Back'**
   String get back;
 
   /// No description provided for @exit.
   ///
-  /// In es, this message translates to:
-  /// **'Salir'**
+  /// In en, this message translates to:
+  /// **'Exit'**
   String get exit;
 
   /// No description provided for @cancel.
   ///
-  /// In es, this message translates to:
-  /// **'Cancelar'**
+  /// In en, this message translates to:
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @ok.
   ///
-  /// In es, this message translates to:
-  /// **'Aceptar'**
+  /// In en, this message translates to:
+  /// **'OK'**
   String get ok;
 
   /// No description provided for @yes.
   ///
-  /// In es, this message translates to:
-  /// **'Sí'**
+  /// In en, this message translates to:
+  /// **'Yes'**
   String get yes;
 
   /// No description provided for @no.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'No'**
   String get no;
 
   /// No description provided for @loading.
   ///
-  /// In es, this message translates to:
-  /// **'Cargando...'**
+  /// In en, this message translates to:
+  /// **'Loading...'**
   String get loading;
 
   /// No description provided for @error.
   ///
-  /// In es, this message translates to:
+  /// In en, this message translates to:
   /// **'Error'**
   String get error;
 
   /// No description provided for @success.
   ///
-  /// In es, this message translates to:
-  /// **'Éxito'**
+  /// In en, this message translates to:
+  /// **'Success'**
   String get success;
 
   /// No description provided for @warning.
   ///
-  /// In es, this message translates to:
-  /// **'Advertencia'**
+  /// In en, this message translates to:
+  /// **'Warning'**
   String get warning;
 
   /// No description provided for @info.
   ///
-  /// In es, this message translates to:
-  /// **'Información'**
+  /// In en, this message translates to:
+  /// **'Info'**
   String get info;
 
   /// No description provided for @noInternetConnection.
   ///
-  /// In es, this message translates to:
-  /// **'Sin conexión a internet'**
+  /// In en, this message translates to:
+  /// **'No internet connection'**
   String get noInternetConnection;
 
   /// No description provided for @checkYourConnection.
   ///
-  /// In es, this message translates to:
-  /// **'Verifica tu conexión y vuelve a intentar.'**
+  /// In en, this message translates to:
+  /// **'Check your connection and try again.'**
   String get checkYourConnection;
 
   /// No description provided for @serverError.
   ///
-  /// In es, this message translates to:
-  /// **'Error del servidor'**
+  /// In en, this message translates to:
+  /// **'Server error'**
   String get serverError;
 
   /// No description provided for @somethingWentWrong2.
   ///
-  /// In es, this message translates to:
-  /// **'Algo salió mal.'**
+  /// In en, this message translates to:
+  /// **'Something went wrong.'**
   String get somethingWentWrong2;
 
   /// No description provided for @pleaseTryAgain.
   ///
-  /// In es, this message translates to:
-  /// **'Por favor intenta de nuevo.'**
+  /// In en, this message translates to:
+  /// **'Please try again.'**
   String get pleaseTryAgain;
 
   /// No description provided for @unitProgress.
   ///
-  /// In es, this message translates to:
-  /// **'Progreso de Unidad'**
+  /// In en, this message translates to:
+  /// **'Unit Progress'**
   String get unitProgress;
 
   /// No description provided for @lessonsInUnit.
   ///
-  /// In es, this message translates to:
-  /// **'{count} lecciones'**
+  /// In en, this message translates to:
+  /// **'{count} lessons'**
   String lessonsInUnit(int count);
 
   /// No description provided for @locked.
   ///
-  /// In es, this message translates to:
-  /// **'Bloqueado'**
+  /// In en, this message translates to:
+  /// **'Locked'**
   String get locked;
 
   /// No description provided for @completed.
   ///
-  /// In es, this message translates to:
-  /// **'Completado'**
+  /// In en, this message translates to:
+  /// **'Completed'**
   String get completed;
 
   /// No description provided for @inProgress.
   ///
-  /// In es, this message translates to:
-  /// **'En progreso'**
+  /// In en, this message translates to:
+  /// **'In progress'**
   String get inProgress;
 
   /// No description provided for @notStarted.
   ///
-  /// In es, this message translates to:
-  /// **'No iniciado'**
+  /// In en, this message translates to:
+  /// **'Not started'**
   String get notStarted;
 
   /// No description provided for @start.
   ///
-  /// In es, this message translates to:
-  /// **'Iniciar'**
+  /// In en, this message translates to:
+  /// **'Start'**
   String get start;
 
   /// No description provided for @resume.
   ///
-  /// In es, this message translates to:
-  /// **'Continuar'**
+  /// In en, this message translates to:
+  /// **'Resume'**
   String get resume;
 
   /// No description provided for @review.
   ///
-  /// In es, this message translates to:
-  /// **'Repasar'**
+  /// In en, this message translates to:
+  /// **'Review'**
   String get review;
 
   /// No description provided for @stateDetails.
   ///
-  /// In es, this message translates to:
-  /// **'Detalles del Estado'**
+  /// In en, this message translates to:
+  /// **'State Details'**
   String get stateDetails;
 
   /// No description provided for @region.
   ///
-  /// In es, this message translates to:
-  /// **'Región'**
+  /// In en, this message translates to:
+  /// **'Region'**
   String get region;
 
   /// No description provided for @description.
   ///
-  /// In es, this message translates to:
-  /// **'Descripción'**
+  /// In en, this message translates to:
+  /// **'Description'**
   String get description;
 
   /// No description provided for @noDescription.
   ///
-  /// In es, this message translates to:
-  /// **'Sin descripción'**
+  /// In en, this message translates to:
+  /// **'No description'**
   String get noDescription;
 
   /// No description provided for @noFunFact.
   ///
-  /// In es, this message translates to:
-  /// **'Sin dato curioso'**
+  /// In en, this message translates to:
+  /// **'No fun fact'**
   String get noFunFact;
 
   /// No description provided for @practiceMore.
   ///
-  /// In es, this message translates to:
-  /// **'Practicar más'**
+  /// In en, this message translates to:
+  /// **'Practice more'**
   String get practiceMore;
 
   /// No description provided for @goToMap.
   ///
-  /// In es, this message translates to:
-  /// **'Ir al mapa'**
+  /// In en, this message translates to:
+  /// **'Go to map'**
   String get goToMap;
 
   /// No description provided for @lesson.
   ///
-  /// In es, this message translates to:
-  /// **'Lección'**
+  /// In en, this message translates to:
+  /// **'Lesson'**
   String get lesson;
 
   /// No description provided for @unit.
   ///
-  /// In es, this message translates to:
-  /// **'Unidad'**
+  /// In en, this message translates to:
+  /// **'Unit'**
   String get unit;
 
   /// No description provided for @northernMexico.
   ///
-  /// In es, this message translates to:
-  /// **'México Norte'**
+  /// In en, this message translates to:
+  /// **'Northern Mexico'**
   String get northernMexico;
 
   /// No description provided for @centralMexico.
   ///
-  /// In es, this message translates to:
-  /// **'México Central'**
+  /// In en, this message translates to:
+  /// **'Central Mexico'**
   String get centralMexico;
 
   /// No description provided for @westernMexico.
   ///
-  /// In es, this message translates to:
-  /// **'México Oeste'**
+  /// In en, this message translates to:
+  /// **'Western Mexico'**
   String get westernMexico;
 
   /// No description provided for @southernMexico.
   ///
-  /// In es, this message translates to:
-  /// **'México Sur'**
+  /// In en, this message translates to:
+  /// **'Southern Mexico'**
   String get southernMexico;
 
   /// No description provided for @southeastMexico.
   ///
-  /// In es, this message translates to:
-  /// **'México Sureste'**
+  /// In en, this message translates to:
+  /// **'Southeast Mexico'**
   String get southeastMexico;
 }
 
@@ -934,7 +938,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['es'].contains(locale.languageCode);
+      <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -943,6 +947,8 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'en':
+      return AppLocalizationsEn();
     case 'es':
       return AppLocalizationsEs();
   }

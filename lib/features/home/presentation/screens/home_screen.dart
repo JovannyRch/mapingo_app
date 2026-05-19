@@ -38,7 +38,6 @@ class HomeScreen extends ConsumerWidget {
           return _HomeContent(content: content);
         },
       ),
-      bottomNavigationBar: const _MapingoBottomNavigation(),
     );
   }
 }
@@ -446,41 +445,6 @@ class _UnitCountBadge extends StatelessWidget {
           fontWeight: FontWeight.w800,
         ),
       ),
-    );
-  }
-}
-
-class _MapingoBottomNavigation extends StatelessWidget {
-  const _MapingoBottomNavigation();
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: 0,
-      onTap: (index) {
-        switch (index) {
-          case 0:
-            context.go(AppRoutes.home);
-          case 1:
-            context.go(AppRoutes.practice);
-          case 2:
-            context.go(AppRoutes.mapExplorer);
-          case 3:
-            context.go(AppRoutes.profile);
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Home'),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.quiz_rounded),
-          label: 'Practice',
-        ),
-        BottomNavigationBarItem(icon: Icon(Icons.map_rounded), label: 'Map'),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_rounded),
-          label: 'Profile',
-        ),
-      ],
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,6 +30,11 @@ final settingsControllerProvider =
       SettingsController.new,
     );
 
+final themeModeProvider = Provider<ThemeMode>((ref) {
+  final settings = ref.watch(settingsControllerProvider);
+  return settings.valueOrNull?.themeMode ?? ThemeMode.system;
+});
+
 class SettingsController extends AsyncNotifier<SettingsModel> {
   @override
   Future<SettingsModel> build() async {
@@ -45,6 +51,12 @@ class SettingsController extends AsyncNotifier<SettingsModel> {
   Future<void> setHapticFeedbackEnabled(bool enabled) async {
     await _updateSettings(
       (repository) => repository.setHapticFeedbackEnabled(enabled),
+    );
+  }
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    await _updateSettings(
+      (repository) => repository.setThemeMode(mode),
     );
   }
 

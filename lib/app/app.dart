@@ -17,6 +17,7 @@ class MapingoApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: MapingoTheme.lightTheme,
       darkTheme: MapingoTheme.darkTheme,
+      themeMode: ThemeMode.light,
       routerConfig: router,
       locale: const Locale('es'),
       supportedLocales: const [

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../datasources/settings_local_datasource.dart';
 import '../models/settings_model.dart';
 
@@ -16,6 +18,14 @@ class SettingsRepository {
 
   Future<SettingsModel> setHapticFeedbackEnabled(bool enabled) {
     return _datasource.setHapticFeedbackEnabled(enabled);
+  }
+
+  Future<SettingsModel> setThemeMode(ThemeMode mode) {
+    return _datasource.setThemeMode(mode);
+  }
+
+  Future<SettingsModel> setLocale(Locale locale) {
+    return _datasource.setLocale(locale);
   }
 
   Future<SettingsModel> resetLocalCache() {

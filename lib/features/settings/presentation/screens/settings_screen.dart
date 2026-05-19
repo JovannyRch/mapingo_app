@@ -81,6 +81,13 @@ class SettingsScreen extends ConsumerWidget {
                     _setHapticFeedback(context, ref, value: value),
               ),
               const SizedBox(height: MapingoSpacing.xl),
+              _SectionTitle(icon: Icons.dark_mode_rounded, title: 'Appearance'),
+              const SizedBox(height: MapingoSpacing.md),
+              _ThemeModeCard(
+                currentMode: settings.themeMode,
+                onChanged: (mode) => _setThemeMode(context, ref, mode),
+              ),
+              const SizedBox(height: MapingoSpacing.xl),
               _SectionTitle(
                 icon: Icons.cleaning_services_rounded,
                 title: 'Device and session',
@@ -211,6 +218,20 @@ class SettingsScreen extends ConsumerWidget {
     } catch (_) {
       if (context.mounted) {
         _showSnackBar(context, 'Could not update haptic feedback.');
+      }
+    }
+  }
+
+  Future<void> _setThemeMode(
+    BuildContext context,
+    WidgetRef ref,
+    ThemeMode mode,
+  ) async {
+    try {
+      await ref.read(settingsControllerProvider.notifier).setThemeMode(mode);
+    } catch (_) {
+      if (context.mounted) {
+        _showSnackBar(context, 'Could not update theme.');
       }
     }
   }
@@ -573,6 +594,142 @@ class _SettingIcon extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Icon(icon, color: color),
+    );
+  }
+}
+
+class _ThemeModeCard extends StatelessWidget {
+  final ThemeMode currentMode;
+  final ValueChanged<ThemeMode> onChanged;
+
+  const _ThemeModeCard({
+    required this.currentMode,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MapingoCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const _SettingIcon(icon: Icons.dark_mode_rounded),
+              const SizedBox(width: MapingoSpacing.base),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Theme', style: MapingoTypography.titleLarge),
+                    const SizedBox(height: MapingoSpacing.xs),
+                    Text(
+                      _getThemeLabel(currentMode),
+                      style: MapingoTypography.bodyMedium.copyWith(
+                        color: MapingoColors.grey600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: MapingoSpacing.base),
+          Row(
+            children: [
+              _ThemeOption(
+                icon: Icons.brightness_auto_rounded,
+                label: 'System',
+                isSelected: currentMode == ThemeMode.system,
+                onTap: () => onChanged(ThemeMode.system),
+              ),
+              const SizedBox(width: MapingoSpacing.sm),
+              _ThemeOption(
+                icon: Icons.light_mode_rounded,
+                label: 'Light',
+                isSelected: currentMode == ThemeMode.light,
+                onTap: () => onChanged(ThemeMode.light),
+              ),
+              const SizedBox(width: MapingoSpacing.sm),
+              _ThemeOption(
+                icon: Icons.dark_mode_rounded,
+                label: 'Dark',
+                isSelected: currentMode == ThemeMode.dark,
+                onTap: () => onChanged(ThemeMode.dark),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getThemeLabel(ThemeMode mode) {
+    switch (mode) {
+      case ThemeMode.system:
+        return 'Follow system settings';
+      case ThemeMode.light:
+        return 'Always light mode';
+      case ThemeMode.dark:
+        return 'Always dark mode';
+    }
+  }
+}
+
+class _ThemeOption extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _ThemeOption({
+    required this.icon,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Expanded(
+      child: Material(
+        color: isSelected
+            ? MapingoColors.primary
+            : (isDark ? MapingoColors.grey800 : MapingoColors.grey100),
+        borderRadius: MapingoTheme.borderRadiusMd,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: MapingoTheme.borderRadiusMd,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: MapingoSpacing.base,
+              vertical: MapingoSpacing.md,
+            ),
+            child: Column(
+              children: [
+                Icon(
+                  icon,
+                  color: isSelected
+                      ? MapingoColors.white
+                      : (isDark ? MapingoColors.grey300 : MapingoColors.grey700),
+                ),
+                const SizedBox(height: MapingoSpacing.xs),
+                Text(
+                  label,
+                  style: MapingoTypography.labelMedium.copyWith(
+                    color: isSelected
+                        ? MapingoColors.white
+                        : (isDark ? MapingoColors.grey300 : MapingoColors.grey700),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
