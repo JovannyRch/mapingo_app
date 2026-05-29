@@ -114,7 +114,7 @@ class _HomeHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hola, ${profile.username ?? 'Explorer'}',
+                'Hola, ${profile.username ?? 'Explorador'}',
                 style: MapingoTypography.displaySmall.copyWith(
                   color: MapingoColors.grey900,
                 ),
@@ -391,7 +391,7 @@ class _LessonPath extends StatelessWidget {
       return;
     }
 
-    context.goNamed(
+    context.pushNamed(
       AppRouteNames.lessonDetail,
       pathParameters: {'id': lesson.lesson.id},
     );

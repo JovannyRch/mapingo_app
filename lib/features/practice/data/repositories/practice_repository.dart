@@ -56,6 +56,8 @@ class PracticeRepository {
     );
 
     if (attempt.isCorrect) {
+      if (!isMistakeReviewExercise) return;
+
       await _lessonRepository.markMistakeResolved(
         userId: userId,
         exerciseId: attempt.exerciseId,

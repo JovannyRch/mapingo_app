@@ -248,6 +248,12 @@ abstract class AppLocalizations {
   /// **'Practice complete'**
   String get practiceComplete;
 
+  /// No description provided for @practiceScoreSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{correctCount} correct - {wrongCount} wrong'**
+  String practiceScoreSummary(int correctCount, int wrongCount);
+
   /// No description provided for @youAnsweredEveryQuestion.
   ///
   /// In en, this message translates to:
@@ -374,6 +380,24 @@ abstract class AppLocalizations {
   /// **'Review Mistakes'**
   String get reviewMistakes;
 
+  /// No description provided for @practiceCapitals.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice capitals'**
+  String get practiceCapitals;
+
+  /// No description provided for @practiceMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice map'**
+  String get practiceMap;
+
+  /// No description provided for @quickChallenge.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick challenge'**
+  String get quickChallenge;
+
   /// No description provided for @lessonPractice.
   ///
   /// In en, this message translates to:
@@ -475,6 +499,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// No description provided for @map.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get map;
 
   /// No description provided for @profile.
   ///

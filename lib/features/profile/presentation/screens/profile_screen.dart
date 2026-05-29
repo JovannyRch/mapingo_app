@@ -25,7 +25,7 @@ class ProfileScreen extends ConsumerWidget {
         actions: [
           IconButton(
             tooltip: 'Settings',
-            onPressed: () => context.go(AppRoutes.settings),
+            onPressed: () => context.push(AppRoutes.settings),
             icon: const Icon(Icons.settings_rounded),
           ),
         ],
@@ -50,7 +50,7 @@ class ProfileScreen extends ConsumerWidget {
             padding: MapingoSpacing.screenPadding,
             children: [
               _ProfileHeader(
-                username: session.profile.username ?? 'Explorer',
+                username: session.profile.username ?? 'Explorador',
                 totalXp: session.profile.totalXp,
                 currentStreak: session.profile.currentStreak,
                 longestStreak: session.profile.longestStreak,

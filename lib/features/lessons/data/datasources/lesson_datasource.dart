@@ -219,10 +219,10 @@ class LessonDatasource {
         .eq('user_id', userId)
         .eq('exercise_id', exerciseId)
         .select()
-        .maybeSingle();
+        .limit(1);
 
-    if (response == null) return null;
-    return UserMistakeModel.fromJson(response);
+    if (response.isEmpty) return null;
+    return UserMistakeModel.fromJson(response.first);
   }
 
   Future<void> incrementUserXp({

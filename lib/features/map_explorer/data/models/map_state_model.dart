@@ -31,7 +31,7 @@ class MapStateModel {
     return MapStateModel(
       id: json['id'] as String,
       regionId: json['region_id'] as String?,
-      regionName: region?['name'] as String? ?? 'Mexico',
+      regionName: region?['name'] as String? ?? 'México',
       name: json['name'] as String,
       capital: json['capital'] as String,
       abbreviation: json['abbreviation'] as String,
@@ -67,8 +67,8 @@ class MapStateProgressModel {
   }
 
   String get label {
-    if (attempts == 0) return 'No practice yet';
-    return '${(accuracy * 100).round()}% accuracy';
+    if (attempts == 0) return 'Sin práctica todavía';
+    return '${(accuracy * 100).round()}% de precisión';
   }
 }
 

@@ -21,7 +21,7 @@ class ProfileDatasource {
 
   Future<ProfileModel> createProfile({
     required String userId,
-    String username = 'Explorer',
+    String username = 'Explorador',
   }) async {
     final response = await _client
         .from('profiles')

@@ -732,7 +732,7 @@ class _LessonActionBar extends ConsumerWidget {
     if (state.isLastExercise) {
       await controller.completeLesson();
       if (context.mounted) {
-        context.goNamed(
+        context.pushReplacementNamed(
           AppRouteNames.lessonResult,
           pathParameters: {'id': lessonId},
         );

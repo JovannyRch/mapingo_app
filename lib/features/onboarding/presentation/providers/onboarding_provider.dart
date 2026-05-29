@@ -30,7 +30,7 @@ class OnboardingFlowState {
 
   String get cleanUsername {
     final trimmed = username.trim();
-    return trimmed.isEmpty ? 'Explorer' : trimmed;
+    return trimmed.isEmpty ? 'Explorador' : trimmed;
   }
 
   OnboardingFlowState copyWith({
@@ -55,7 +55,10 @@ class OnboardingFlowNotifier extends Notifier<OnboardingFlowState> {
 
     return OnboardingFlowState(
       dailyGoalMinutes: profile?.dailyGoalMinutes ?? 5,
-      username: profile?.username == 'Explorer' ? '' : profile?.username ?? '',
+      username:
+          profile?.username == 'Explorador' || profile?.username == 'Explorer'
+          ? ''
+          : profile?.username ?? '',
     );
   }
 

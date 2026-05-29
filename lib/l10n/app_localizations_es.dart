@@ -89,6 +89,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get practiceComplete => 'Práctica completa';
 
   @override
+  String practiceScoreSummary(int correctCount, int wrongCount) {
+    return '$correctCount correctas - $wrongCount incorrectas';
+  }
+
+  @override
   String get youAnsweredEveryQuestion =>
       'Respondiste todas las preguntas de práctica.';
 
@@ -159,6 +164,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get reviewMistakes => 'Repasar Errores';
 
   @override
+  String get practiceCapitals => 'Practicar capitales';
+
+  @override
+  String get practiceMap => 'Practicar mapa';
+
+  @override
+  String get quickChallenge => 'Reto rápido';
+
+  @override
   String get lessonPractice => 'Práctica de Lección';
 
   @override
@@ -199,7 +213,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get correct2 => '¡Correcto!';
 
   @override
-  String get tryAgainLater => 'Intenta más tarde.';
+  String get tryAgainLater => 'Intenta esto después.';
 
   @override
   String get practiceComplete2 => 'Práctica completa';
@@ -209,6 +223,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get home => 'Inicio';
+
+  @override
+  String get map => 'Mapa';
 
   @override
   String get profile => 'Perfil';
@@ -260,7 +277,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get setYourDailyGoal => 'Configura tu meta diaria';
 
   @override
-  String get minutesDescription => 'minutes of practice per day';
+  String get minutesDescription => 'minutos de práctica al día';
 
   @override
   String get whatsYourName => '¿Cómo te llamas?';

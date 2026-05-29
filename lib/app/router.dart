@@ -11,9 +11,11 @@ import '../features/onboarding/presentation/screens/onboarding_screen.dart';
 import '../features/practice/presentation/screens/practice_screen.dart';
 import '../features/profile/presentation/screens/profile_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart';
+import '../l10n/app_localizations.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> _shellNavigatorKey =
+    GlobalKey<NavigatorState>();
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -123,16 +125,22 @@ class _MapingoBottomNavigation extends StatelessWidget {
             context.go(AppRoutes.profile);
         }
       },
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Home'),
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.quiz_rounded),
-          label: 'Practice',
+          icon: const Icon(Icons.home_rounded),
+          label: AppLocalizations.of(context)!.home,
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.map_rounded), label: 'Map'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_rounded),
-          label: 'Profile',
+          icon: const Icon(Icons.quiz_rounded),
+          label: AppLocalizations.of(context)!.practice,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.map_rounded),
+          label: AppLocalizations.of(context)!.map,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.person_rounded),
+          label: AppLocalizations.of(context)!.profile,
         ),
       ],
     );

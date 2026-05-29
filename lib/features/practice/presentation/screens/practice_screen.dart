@@ -108,7 +108,10 @@ class _ModePicker extends ConsumerWidget {
                 ),
                 const SizedBox(width: MapingoSpacing.base),
                 Expanded(
-                  child: Text(mode.title, style: MapingoTypography.titleLarge),
+                  child: Text(
+                    _titleFor(mode, l10n),
+                    style: MapingoTypography.titleLarge,
+                  ),
                 ),
                 const Icon(Icons.arrow_forward_rounded),
               ],
@@ -130,6 +133,19 @@ class _ModePicker extends ConsumerWidget {
         return Icons.map_rounded;
       case PracticeMode.quickChallenge:
         return Icons.bolt_rounded;
+    }
+  }
+
+  String _titleFor(PracticeMode mode, AppLocalizations l10n) {
+    switch (mode) {
+      case PracticeMode.mistakes:
+        return l10n.reviewMistakes;
+      case PracticeMode.capitals:
+        return l10n.practiceCapitals;
+      case PracticeMode.map:
+        return l10n.practiceMap;
+      case PracticeMode.quickChallenge:
+        return l10n.quickChallenge;
     }
   }
 }
@@ -295,7 +311,11 @@ class _PracticeExerciseOptions extends ConsumerWidget {
     return AnswerOptionState.normal;
   }
 
-  String _displayOption(String option, ExerciseModel exercise, BuildContext context) {
+  String _displayOption(
+    String option,
+    ExerciseModel exercise,
+    BuildContext context,
+  ) {
     final l10n = AppLocalizations.of(context)!;
     if (option == 'true') return l10n.trueLabel;
     if (option == 'false') return l10n.falseLabel;
@@ -325,8 +345,7 @@ class _PracticeMapTap extends ConsumerWidget {
         : null;
 
     return mapContent.when(
-      loading: () =>
-          LoadingView(message: l10n.loadingMap2, showLogo: false),
+      loading: () => LoadingView(message: l10n.loadingMap2, showLogo: false),
       error: (error, stackTrace) => ErrorView(
         title: l10n.couldNotLoadMap2,
         message: error.toString(),
@@ -488,7 +507,7 @@ class _PracticeComplete extends ConsumerWidget {
           ),
           const SizedBox(height: MapingoSpacing.md),
           Text(
-            '${state.correctAnswers} correct - ${state.wrongAnswers} wrong',
+            l10n.practiceScoreSummary(state.correctAnswers, state.wrongAnswers),
             style: MapingoTypography.bodyLarge.copyWith(
               color: MapingoColors.grey600,
             ),

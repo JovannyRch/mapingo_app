@@ -25,6 +25,17 @@
   "choosePractice": "Choose practice",
   "shortSessionsHelpReinforce": "Short sessions help reinforce what you've learned.",
   "practiceComplete": "Practice complete",
+  "practiceScoreSummary": "{correctCount} correct - {wrongCount} wrong",
+  "@practiceScoreSummary": {
+    "placeholders": {
+      "correctCount": {
+        "type": "int"
+      },
+      "wrongCount": {
+        "type": "int"
+      }
+    }
+  },
   "youAnsweredEveryQuestion": "You answered all practice questions.",
   "finish": "Finish",
   "continueAction": "Continue",
@@ -49,6 +60,9 @@
   "explorer": "Explorer",
   "practiceMode": "Practice Mode",
   "reviewMistakes": "Review Mistakes",
+  "practiceCapitals": "Practice capitals",
+  "practiceMap": "Practice map",
+  "quickChallenge": "Quick challenge",
   "lessonPractice": "Lesson Practice",
   "mapPractice": "Map Practice",
   "matchPairs": "Match Pairs",
@@ -72,6 +86,7 @@
   "practiceComplete2": "Practice complete",
   "chooseAnotherMode2": "Choose another mode",
   "home": "Home",
+  "map": "Map",
   "profile": "Profile",
   "settings": "Settings",
   "mapingo": "Mapingo",

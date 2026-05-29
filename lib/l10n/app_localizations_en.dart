@@ -89,6 +89,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get practiceComplete => 'Practice complete';
 
   @override
+  String practiceScoreSummary(int correctCount, int wrongCount) {
+    return '$correctCount correct - $wrongCount wrong';
+  }
+
+  @override
   String get youAnsweredEveryQuestion => 'You answered all practice questions.';
 
   @override
@@ -158,6 +163,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reviewMistakes => 'Review Mistakes';
 
   @override
+  String get practiceCapitals => 'Practice capitals';
+
+  @override
+  String get practiceMap => 'Practice map';
+
+  @override
+  String get quickChallenge => 'Quick challenge';
+
+  @override
   String get lessonPractice => 'Lesson Practice';
 
   @override
@@ -208,6 +222,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get map => 'Map';
 
   @override
   String get profile => 'Profile';

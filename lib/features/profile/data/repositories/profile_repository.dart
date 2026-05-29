@@ -27,7 +27,7 @@ class ProfileRepository {
     required int dailyGoalMinutes,
   }) {
     final cleanUsername = username.trim().isEmpty
-        ? 'Explorer'
+        ? 'Explorador'
         : username.trim();
 
     return _datasource.updateOnboardingProfile(
@@ -43,7 +43,7 @@ class ProfileRepository {
     required String username,
   }) {
     final cleanUsername = username.trim().isEmpty
-        ? 'Explorer'
+        ? 'Explorador'
         : username.trim();
 
     return _datasource.updateUsername(userId: userId, username: cleanUsername);

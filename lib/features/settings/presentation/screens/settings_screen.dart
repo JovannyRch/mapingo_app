@@ -39,7 +39,9 @@ class SettingsScreen extends ConsumerWidget {
           data: (settings) => ListView(
             padding: MapingoSpacing.screenPadding,
             children: [
-              _SettingsHeader(username: session.profile.username ?? 'Explorer'),
+              _SettingsHeader(
+                username: session.profile.username ?? 'Explorador',
+              ),
               const SizedBox(height: MapingoSpacing.xl),
               _SectionTitle(
                 icon: Icons.person_rounded,
@@ -47,11 +49,11 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: MapingoSpacing.md),
               _UsernameCard(
-                username: session.profile.username ?? 'Explorer',
+                username: session.profile.username ?? 'Explorador',
                 onTap: () => _showUsernameDialog(
                   context: context,
                   ref: ref,
-                  username: session.profile.username ?? 'Explorer',
+                  username: session.profile.username ?? 'Explorador',
                 ),
               ),
               const SizedBox(height: MapingoSpacing.md),
@@ -563,16 +565,51 @@ class _ActionCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: MapingoSpacing.base),
-          SecondaryButton(
+          _SettingsActionButton(
             label: actionLabel,
             icon: isDestructive
                 ? Icons.restart_alt_rounded
                 : Icons.cached_rounded,
-            isExpanded: false,
-            height: 44,
+            color: color,
             onPressed: onPressed,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _SettingsActionButton extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final Color color;
+  final VoidCallback onPressed;
+
+  const _SettingsActionButton({
+    required this.label,
+    required this.icon,
+    required this.color,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 140,
+      height: 52,
+      child: OutlinedButton.icon(
+        onPressed: onPressed,
+        icon: Icon(icon, size: 22),
+        label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
+        style: OutlinedButton.styleFrom(
+          foregroundColor: color,
+          side: BorderSide(color: color, width: 2),
+          shape: RoundedRectangleBorder(
+            borderRadius: MapingoTheme.borderRadiusFull,
+          ),
+          padding: EdgeInsets.zero,
+          textStyle: MapingoTypography.labelLarge,
+        ),
       ),
     );
   }
@@ -602,10 +639,7 @@ class _ThemeModeCard extends StatelessWidget {
   final ThemeMode currentMode;
   final ValueChanged<ThemeMode> onChanged;
 
-  const _ThemeModeCard({
-    required this.currentMode,
-    required this.onChanged,
-  });
+  const _ThemeModeCard({required this.currentMode, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -714,7 +748,9 @@ class _ThemeOption extends StatelessWidget {
                   icon,
                   color: isSelected
                       ? MapingoColors.white
-                      : (isDark ? MapingoColors.grey300 : MapingoColors.grey700),
+                      : (isDark
+                            ? MapingoColors.grey300
+                            : MapingoColors.grey700),
                 ),
                 const SizedBox(height: MapingoSpacing.xs),
                 Text(
@@ -722,7 +758,9 @@ class _ThemeOption extends StatelessWidget {
                   style: MapingoTypography.labelMedium.copyWith(
                     color: isSelected
                         ? MapingoColors.white
-                        : (isDark ? MapingoColors.grey300 : MapingoColors.grey700),
+                        : (isDark
+                              ? MapingoColors.grey300
+                              : MapingoColors.grey700),
                   ),
                 ),
               ],

@@ -25,6 +25,17 @@
   "choosePractice": "Elegir práctica",
   "shortSessionsHelpReinforce": "Las sesiones cortas ayudan a reforzar lo que has aprendido.",
   "practiceComplete": "Práctica completa",
+  "practiceScoreSummary": "{correctCount} correctas - {wrongCount} incorrectas",
+  "@practiceScoreSummary": {
+    "placeholders": {
+      "correctCount": {
+        "type": "int"
+      },
+      "wrongCount": {
+        "type": "int"
+      }
+    }
+  },
   "youAnsweredEveryQuestion": "Respondiste todas las preguntas de práctica.",
   "finish": "Terminar",
   "continueAction": "Continuar",
@@ -49,6 +60,9 @@
   "explorer": "Explorador",
   "practiceMode": "Modo de Práctica",
   "reviewMistakes": "Repasar Errores",
+  "practiceCapitals": "Practicar capitales",
+  "practiceMap": "Practicar mapa",
+  "quickChallenge": "Reto rápido",
   "lessonPractice": "Práctica de Lección",
   "mapPractice": "Práctica en el Mapa",
   "matchPairs": "Emparejar Pares",
@@ -72,6 +86,7 @@
   "practiceComplete2": "Práctica completa",
   "chooseAnotherMode2": "Elegir otro modo",
   "home": "Inicio",
+  "map": "Mapa",
   "profile": "Perfil",
   "settings": "Configuración",
   "mapingo": "Mapingo",
@@ -88,7 +103,7 @@
   "onboarding": "Bienvenido a Mapingo",
   "onboardingSubtitle": "Aprende los 32 estados de México de forma divertida",
   "setYourDailyGoal": "Configura tu meta diaria",
-  "minutesDescription": "minutes of practice per day",
+  "minutesDescription": "minutos de práctica al día",
   "whatsYourName": "¿Cómo te llamas?",
   "optionalUsername": "Opcional - ¿Cómo quieres que te llamemos?",
   "startLearning": "Comenzar a Aprender",
@@ -128,7 +143,6 @@
   "correctAnswers": "Respuestas correctas",
   "timeSpent": "Tiempo",
   "continueToHome": "Continuar al inicio",
-  "tryAgain": "Intentar de nuevo",
   "next": "Siguiente",
   "back": "Atrás",
   "exit": "Salir",
@@ -144,7 +158,6 @@
   "noInternetConnection": "Sin conexión a internet",
   "checkYourConnection": "Verifica tu conexión y vuelve a intentar.",
   "serverError": "Error del servidor",
-  "tryAgainLater": "Intenta más tarde.",
   "somethingWentWrong2": "Algo salió mal.",
   "pleaseTryAgain": "Por favor intenta de nuevo.",
   "unitProgress": "Progreso de Unidad",
